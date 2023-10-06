@@ -29,12 +29,13 @@ public class Product {
     private int product_id;             // Unique identifier for the product
     private String product_name;        // Name of the product
     private String product_brand;       // Brand name of the product
-    private int product_price;        // Price of the product
-    private int product_quantity;       // Quantity of the product available
-    private float product_rating;       // Rating of the product (e.g., average customer rating)
-    private boolean product_availability;  // Availability status of the product (true if available, false otherwise)
+    private String product_price;        // Price of the product
+    private String product_quantity;       // Quantity of the product available
+    private String product_rating;       // Rating of the product (e.g., average customer rating)
+    private String product_availability;  // Availability status of the product (true if available, false otherwise)
     private String DeliveryStatus;
     private String DeliveryFeedback;
+    private String licence;
     public Product(){}
     //constructor overloading
 //    public Product(int product_price,int product_id,float product_rating,String product_name,String product_brand,boolean product_availability,int product_quantity){
@@ -46,16 +47,15 @@ public class Product {
 //        setBrand(product_brand);
 //        setProduct_quantity(product_quantity);
 //    }
-    public Product(int product_id,String name,String product_brand,String price,String product_availabillity,int product_quantity){
-        setProduct_quantity(product_quantity);
-        setProductName(product_name);
-        setBrand(product_brand);
-        setProduct_quantity(product_quantity);
-        setProduct_rating(product_rating);
-        setProduct_id(product_id);
-        setProduct_availability(product_availability);
-
-
+    public Product(int product_id,String name,String product_brand,String price,String product_availabillity,String product_quantity,String product_rating){
+       this.product_id=product_id;
+       this.product_name=name;
+       this.product_brand=product_brand;
+       this.product_price=price;
+       this.product_availability=product_availabillity;
+       this.product_quantity=product_quantity;
+       this.product_rating=product_rating;
+//       this.licence=license;
     }
 
 
@@ -91,43 +91,51 @@ public class Product {
     }
 
     // Setter method for product_price
-    public void setPrice(int product_price) {
-        this.product_price = product_price;
-    }
-
-    // Getter method for product_price
-    public float getProductPrice() {
+//    public void setPrice(int product_price) {
+//        this.product_price = product_price;
+//    }
+//
+//    // Getter method for product_price
+    public String  getProductPrice() {
         return product_price;
     }
 
     // Setter method for product_quantity
-    public void setProduct_quantity(int product_quantity) {
+    public void setProduct_quantity(String product_quantity) {
         this.product_quantity = product_quantity;
     }
 
     // Getter method for product_quantity
-    public int getProductQuantity() {
+    public String  getProductQuantity() {
         return product_quantity;
     }
 
     // Setter method for product_rating
-    public void setProduct_rating(float product_rating) {
-        this.product_rating = product_rating;
-    }
-
+//    public void setProduct_rating(float product_rating) {
+//        this.product_rating = product_rating;
+//    }
+//
     // Getter method for product_rating
-    public float getProductRating() {
+    public String  getProductRating() {
         return product_rating;
     }
 
     // Setter method for product_availability
-    public void setProduct_availability(boolean product_availability) {
-        this.product_availability = product_availability;
+//    public void setProduct_availability(boolean product_availability) {
+//        this.product_availability = product_availability;
+//    }
+
+
+    public String getLicence() {
+        return licence;
     }
 
-// Getter method for
-//    product_availability    public boolean getProductAvailability() {
-//        return product_availability;    }
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    // Getter method for
+    public String  getProductAvailability() {  return product_availability;    }
     public void addDeliveryStatus(String DeliveryStatus)    {
         this.DeliveryStatus=DeliveryStatus;    }
     public void removeDeliveryStatus()    {

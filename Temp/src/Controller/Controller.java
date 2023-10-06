@@ -17,30 +17,30 @@ public class Controller {
         view = v;
         view.centerInitialSetup(model.getManageCustomerData().getLinesBeingDisplayed(), model.getManageCustomerData().getHeaders().size());
         view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
-        view.centerInitialSetup(model.getManageCustomerData().getLinesBeingDisplayed(), model.getManageCustomerData().getHeaders().size());
-        view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
-        addScrolling();
-        addScrolling();
+//        view.centerInitialSetup(model.getManageCustomerData().getLinesBeingDisplayed(), model.getManageCustomerData().getHeaders().size());
+//        view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+        addScrolling1();
+//        addScrolling();
         addButtonClick();
     }
 
     private void addButtonClick()
     {
+
         view.getMf().getIp().getBp().getBtn_student().addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent me) {
                 System.out.println("Student Pressed");
 
                 view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
-                view.centerUpdate(model.getManageProductData().getLines(model.getManageProductData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
-
+                addScrolling1();
             }
         });
 
         view.getMf().getIp().getBp().getBtn_course().addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent me) {
                 System.out.println("Course Pressed");
-//                view.centerUpdate(model.getManageProductData().getLines(model.getManageProductData().getFirstLineToDisplay(), model.getManageProductData().getLastLineToDisplay()), model.getManageProductData().getHeaders());
-
+                view.centerUpdate(model.getManageProductData().getLines(model.getManageProductData().getFirstLineToDisplay(), model.getManageProductData().getLastLineToDisplay()), model.getManageProductData().getHeaders());
+                addScrolling();
             }
         });
     }
@@ -56,7 +56,7 @@ public class Controller {
 // Now, your CenterPanel is scrollable within the JScrollPane
 
 
-    private void addScrolling()
+    private void addScrolling1()
     {
         view.getMf().getIp().getCp().addMouseWheelListener(new MouseWheelListener() {
             @Override
@@ -105,4 +105,55 @@ public class Controller {
             }
         });
     }
+    private void addScrolling()
+    {
+        view.getMf().getIp().getCp().addMouseWheelListener(new MouseWheelListener() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                int units = e.getUnitsToScroll();
+                System.out.println(units);
+                int current_first_line = model.getManageProductData().getFirstLineToDisplay();
+                int current_last_line = model.getManageProductData().getLastLineToDisplay();
+                int no_of_players = model.getManageProductData().getTable().size();
+                int no_of_display_lines = model.getManageProductData().getLinesBeingDisplayed();
+                if(units <= 0 && current_first_line == 0)
+                {
+                    model.getManageProductData().setFirstLineToDisplay(0);
+                }
+                else if(units <= 0 && current_first_line > 0)
+                {
+                    int new_first_line = current_first_line + units;
+                    if(new_first_line <= 0)
+                    {
+                        model.getManageProductData().setFirstLineToDisplay(0);
+                    }
+                    else
+                    {
+                        model.getManageProductData().setFirstLineToDisplay(new_first_line);
+                    }
+                }
+                else if(units > 0 && current_last_line == no_of_players-1)
+                {
+                    model.getManageProductData().setFirstLineToDisplay(current_first_line);
+                }
+                else if (units > 0 && current_last_line < no_of_players-1)
+                {
+                    int new_first_line = current_first_line + units;
+                    if(new_first_line > no_of_players - no_of_display_lines)
+                    {
+                        new_first_line = no_of_players-no_of_display_lines;
+                        model.getManageProductData().setFirstLineToDisplay(new_first_line);
+                    }
+                    else
+                    {
+                        model.getManageProductData().setFirstLineToDisplay(new_first_line);
+                    }
+                }
+
+                view.centerUpdate(model.getManageProductData().getLines(model.getManageProductData().getFirstLineToDisplay(), model.getManageProductData().getLastLineToDisplay()), model.getManageProductData().getHeaders());
+            }
+        });
+    }
+
+
 }

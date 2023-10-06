@@ -32,15 +32,12 @@ public class manageProduct extends fileHandlingProduct implements Displayable {
                 for (JsonNode node : rootNode) {
                     int id = node.get("product_id").asInt();
                     String name = node.get("product_name").asText();
-                    String product_brand = node.get("Poduct_brand").asText();
-//                    String email = node.get("email").asText();
-                    String price = String.valueOf(node.get("Price").asInt());
-                    String availability = String.valueOf(node.get("availability").asBoolean());
-                    int quantitty= node.get("quantity").asInt();
-//                    String postal = node.get("postal").asText();
-//                    String state = node.get("state").asText();
-//                    String rating = node.get("Country").asText();
-                    Product prod = new Product(id,name,product_brand,price,availability,quantitty);
+                    String product_brand = node.get("Product_brand").asText();
+                    String rating = node.get("product_rating").asText();
+                    String price = String.valueOf(node.get("product_price").asText());
+                    String availability = String.valueOf(node.get("product_availability").asBoolean());
+                    String quantitty=node.get("product_quantity").asText();
+                    Product prod = new Product(id,name,product_brand,price,availability,quantitty,rating);
                     Products.add(prod);
                 }
             }

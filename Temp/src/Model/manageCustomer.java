@@ -34,7 +34,7 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
                     String name = node.get("first_name").asText();
                     String lastName = node.get("last_name").asText();
                     String email = node.get("email").asText();
-                    String phone = String.valueOf(node.get("phoneno").asLong());
+                    String phone = String.valueOf(node.get("phoneno").asText());
                     String address = node.get("customer_address").asText();
                     String city = node.get("city").asText();
 //                    String postal = node.get("postal").asText();
@@ -74,9 +74,10 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         headers.add("Id");
         headers.add("Name");
         headers.add("Email");
-        headers.add("Gender");
         headers.add("MobileNo");
-        headers.add("Category");
+        headers.add("Address");
+
+        headers.add("City");
 //        headers.add("10th Percentage");
 //        headers.add("12th/Diploma Percentage");
 

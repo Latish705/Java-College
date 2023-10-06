@@ -10,14 +10,14 @@ public class ButtonPanel  extends JPanel {
 
     public ButtonPanel(){
         btn_student.setBackground(Color.cyan);
-        btn_student.setPreferredSize(new Dimension(80,25));
-        btn_student.setText("Student");
+        btn_student.setPreferredSize(new Dimension(120,25));
+        btn_student.setText("Customer");
         this.add(btn_student);
         validate();
         repaint();
         btn_course.setBackground(Color.cyan);
-        btn_course.setPreferredSize(new Dimension(80,25));
-        btn_course.setText("Course");
+        btn_course.setPreferredSize(new Dimension(120,25));
+        btn_course.setText("Product");
         this.add(btn_course);
         validate();
         repaint();
