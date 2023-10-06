@@ -64,6 +64,13 @@ public class CenterPanel extends JPanel {
         student_buttons.get(button_no).setText(button_text);
     }
 
+    public JScrollPane createScrollPane() {
+        // Create a JScrollPane and add your CenterPanel to it
+        JScrollPane scrollPane = new JScrollPane(this);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        return scrollPane;
+    }
+
     public ArrayList<JButton> getHeaderButtons()
     {
         return header_buttons;

@@ -1,15 +1,15 @@
 package Model;
 import java.util.Calendar;
-import java.util.Date;
+
 public class Enrolls{
     private Calendar enrollment_date;
     Customer ObjStud;
-    Course ObjCourse;
+    Product objProduct;
 
-    public void enroll_stud_course(Customer tempStud, Course tempCourse, Calendar temp_enroll_date)
+    public void enroll_stud_course(Customer tempStud, Product tempCourse, Calendar temp_enroll_date)
     {
         ObjStud = tempStud;
-        ObjCourse = tempCourse;
+        objProduct = tempCourse;
         enrollment_date = temp_enroll_date;
     }
 

@@ -17,6 +17,9 @@ public class Controller {
         view = v;
         view.centerInitialSetup(model.getManageCustomerData().getLinesBeingDisplayed(), model.getManageCustomerData().getHeaders().size());
         view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+        view.centerInitialSetup(model.getManageCustomerData().getLinesBeingDisplayed(), model.getManageCustomerData().getHeaders().size());
+        view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+        addScrolling();
         addScrolling();
         addButtonClick();
     }
@@ -28,19 +31,34 @@ public class Controller {
                 System.out.println("Student Pressed");
 
                 view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+                view.centerUpdate(model.getManageProductData().getLines(model.getManageProductData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+
             }
         });
 
         view.getMf().getIp().getBp().getBtn_course().addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent me) {
                 System.out.println("Course Pressed");
+//                view.centerUpdate(model.getManageProductData().getLines(model.getManageProductData().getFirstLineToDisplay(), model.getManageProductData().getLastLineToDisplay()), model.getManageProductData().getHeaders());
+
             }
         });
     }
+    // Create an instance of your CenterPanel
+//    CenterPanel centerPanel = new CenterPanel();
+//
+//    // Create a JScrollPane and add the CenterPanel to it
+//    JScrollPane scrollPane = centerPanel.createScrollPane();
+//
+//// Add the JScrollPane to your JFrame or other container
+//frame.add(scrollPane);
+
+// Now, your CenterPanel is scrollable within the JScrollPane
+
 
     private void addScrolling()
     {
-        view.getMf().getIp().getBp().addMouseWheelListener(new MouseWheelListener() {
+        view.getMf().getIp().getCp().addMouseWheelListener(new MouseWheelListener() {
             @Override
             public void mouseWheelMoved(MouseWheelEvent e) {
                 int units = e.getUnitsToScroll();
