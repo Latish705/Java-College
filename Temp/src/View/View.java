@@ -15,10 +15,10 @@ public class View {
     public void setMf(MainFrame mf) {
         this.mf = mf;
     }
-    public void firstButtonSetup()
-    {
-        mf.getIp().getFbt();
-    }
+//    public void firstButtonSetup()
+//    {
+//        mf.getIp().getFbt();
+//    }
     public void centerInitialSetup(int linesBeingDisplayed, int size) {
         mf.getIp().getCp().createDisplay(linesBeingDisplayed, size);
     }
