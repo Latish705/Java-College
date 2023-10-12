@@ -16,7 +16,7 @@ public class EditForm extends JFrame {
     public EditForm() {
         setTitle("Edit Form");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(300, 150);
+        setSize(800, 350);
         setLocationRelativeTo(null);
 
         initializeComponents();
@@ -33,15 +33,22 @@ public class EditForm extends JFrame {
     }
 
     private void addComponentsToFrame() {
-        JPanel panel = new JPanel(new GridLayout(2, 2));
+        JPanel panel = new JPanel(new GridLayout(3, 2));
         panel.add(new JLabel("Name:"));
         panel.add(nameTextField);
+        nameTextField.setSize(20,10);
         panel.add(new JLabel("Email"));
         panel.add(emailTextField);
+        emailTextField.setSize(20,10);
+
         panel.add(new JLabel("Phone"));
         panel.add(phonetextfield);
+        phonetextfield.setSize(20,10);
+
         panel.add(new JLabel("Address")); // Empty label for spacing
         panel.add(addresstextfield);
+        addresstextfield.setSize(20,10);
+
         panel.add(new JLabel("City"));
 //        panel.add()
         panel.add(saveButton);

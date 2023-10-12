@@ -20,7 +20,7 @@ public class InitialPanel extends JPanel {
         this.add(cp);
         validate();
         repaint();
-        JFrame firstPanel=new JFrame("Main Button");
+//        JFrame firstPanel=new JFrame("Main Button");
 //        Fbt=new FirstButtonPanel();
 
 
@@ -44,4 +44,7 @@ public class InitialPanel extends JPanel {
     }
 
 
+//    public FirstButtonPanel getFbt() {
+//        return Fbt;
+//    }
 }

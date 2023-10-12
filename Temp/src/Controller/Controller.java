@@ -204,7 +204,7 @@ public class Controller {
     private void openEditForm() {
         JFrame fromFrame=new JFrame("Edit Form");
         fromFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fromFrame.setSize(500, 300);
+        fromFrame.setSize(800, 500);
         EditForm editForm = new EditForm();
         editForm.setVisible(true);
     }
