@@ -16,7 +16,7 @@ public class manageProduct extends fileHandlingProduct implements Displayable {
     int highlightedLine;
 
     public manageProduct(){
-        readJsonFile("C:/Users/vinee/Downloads/Javamini/Temp/src/Model/product.json");
+        readJsonFile("./Temp/src/Model/product.json");
     }
 
     public ArrayList<Product> readJsonFile(String file_path) {

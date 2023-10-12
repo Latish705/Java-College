@@ -9,21 +9,16 @@ public class View {
     public View() {
         mf = new MainFrame();
     }
-
-    /**
-     * @return the mf
-     */
     public MainFrame getMf() {
         return mf;
     }
-
-    /**
-     * @param mf the mf to set
-     */
     public void setMf(MainFrame mf) {
         this.mf = mf;
     }
-
+    public void firstButtonSetup()
+    {
+        mf.getIp().getFbt();
+    }
     public void centerInitialSetup(int linesBeingDisplayed, int size) {
         mf.getIp().getCp().createDisplay(linesBeingDisplayed, size);
     }

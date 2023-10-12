@@ -16,7 +16,7 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
     int highlightedLine;
 
     public manageCustomer(){
-        readJsonFile("C:/Users/vinee/Downloads/Javamini/Temp/src/Model/customer.json");
+        readJsonFile("./Temp/src/Model/customer.json");
     }
 
     public ArrayList<Customer> readJsonFile(String file_path) {
@@ -76,8 +76,8 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         headers.add("Email");
         headers.add("MobileNo");
         headers.add("Address");
-
         headers.add("City");
+        headers.add("Edit");
 //        headers.add("10th Percentage");
 //        headers.add("12th/Diploma Percentage");
 
@@ -100,6 +100,7 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         Customer_details.add(Customers.get(line).getPhoneNo());
         Customer_details.add(String.valueOf(Customers.get(line).getAddress()));
         Customer_details.add(Customers.get(line).getCity());
+        Customer_details.add("Edit");
 
         return Customer_details;
     }

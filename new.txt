@@ -1,0 +1,7 @@
+  Exit.setBackground(Color.GRAY);
+        Exit.setPreferredSize(new Dimension(200,50));
+        Exit.setText("Exit");
+        this.add(Exit);
+        validate();
+        repaint();
+        

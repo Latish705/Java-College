@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class CenterPanel extends JPanel {
 
     ArrayList<JButton> header_buttons = new ArrayList<>();
-    ArrayList<JButton> student_buttons = new ArrayList<>();
+    ArrayList<JButton> customer_button = new ArrayList<>();
 
     public CenterPanel()
     {
@@ -27,15 +27,16 @@ public class CenterPanel extends JPanel {
             validate();
             repaint();
         }
-        for (int i = 1; i <= rows * cols; i++)
+        for (int i = 1; i <= rows * (cols); i++)
         {
             JButton b = new JButton();
             b.setBackground(Color.cyan);
             b.setPreferredSize(new Dimension(120,25));
-            student_buttons.add(b);
+            customer_button.add(b);
             this.add(b);
             validate();
             repaint();
+
         }
 
     }
@@ -53,6 +54,7 @@ public class CenterPanel extends JPanel {
                 int button_no = player_no * headers.size() + player_col_no;
                 String button_txt = lines.get(player_no).get(player_col_no);
                 setPlayerButtonText(button_no,button_txt);
+
             }
         }
     }
@@ -61,7 +63,7 @@ public class CenterPanel extends JPanel {
         header_buttons.get(button_no).setText(button_text);
     }
     public void setPlayerButtonText(int button_no, String button_text) {
-        student_buttons.get(button_no).setText(button_text);
+        customer_button.get(button_no).setText(button_text);
     }
 
     public JScrollPane createScrollPane() {
@@ -76,9 +78,10 @@ public class CenterPanel extends JPanel {
         return header_buttons;
     }
 
-    public ArrayList<JButton> getPlayerButtons()
+    public ArrayList<JButton> getCustomerButton()
     {
-        return student_buttons;
+        return customer_button;
     }
+
 
 }
