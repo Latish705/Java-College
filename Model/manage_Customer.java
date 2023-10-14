@@ -102,8 +102,10 @@ public class manage_Customer extends fileHandling_Customer {
         headers.add("MobileNo");
         headers.add("Nationality");
         headers.add("Age");
+        //headers.add("Create");
         headers.add("update");
         headers.add("Delete");
+
 
         //headers.add("12th/Diploma Percentage");
 
@@ -190,11 +192,21 @@ public class manage_Customer extends fileHandling_Customer {
         }
 
     }
+    public void create(Customer c) {
+        Customers = readJsonFile("C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+
+        System.out.println(c.display_cust());
+       // for (int i = 0; i < Customers.size(); i++) {}
+
+        Customers.add(c);
+        writeJsonFile(Customers,"C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
 
 
 
+    }
 
-    public int getFirstLineToDisplay() {
+
+        public int getFirstLineToDisplay() {
         return firstLineIndex;
     }
 

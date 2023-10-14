@@ -10,7 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class EditForm extends JFrame {
+public class createform extends JFrame {
+    private JTextField idTextField;
+
     private JTextField nameTextField;
     private JTextField emailTextField;
     private JTextField phonetextfield;
@@ -24,19 +26,20 @@ public class EditForm extends JFrame {
     ArrayList<Customer> Customers = new ArrayList<Customer>();
 
 
-    public EditForm(String id,Model m) {
-        setTitle("Edit Form");
+    public createform(Model m) {
+        setTitle("Create Form");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(1000, 500);
+        setSize(1200, 500);
         setLocationRelativeTo(null);
 
         initializeComponents();
         addComponentsToFrame();
-        attachActionListeners(id,m);
+        attachActionListeners(m);
     }
 
 
     private void initializeComponents() {
+        idTextField = new JTextField();
         nameTextField = new JTextField();
         emailTextField = new JTextField();
         phonetextfield = new JTextField();
@@ -46,7 +49,11 @@ public class EditForm extends JFrame {
     }
 
     private void addComponentsToFrame() {
-        JPanel panel = new JPanel(new GridLayout(5, 2));
+        JPanel panel = new JPanel(new GridLayout(6, 2));
+        panel.add(new JLabel("ID:"));
+        panel.add(idTextField);
+        nameTextField.setSize(20, 10);
+
         panel.add(new JLabel("Name:"));
         panel.add(nameTextField);
         nameTextField.setSize(20, 10);
@@ -70,36 +77,28 @@ public class EditForm extends JFrame {
         getContentPane().add(panel, BorderLayout.CENTER);
     }
 
-    private void attachActionListeners(String id,Model m) {
+    private void attachActionListeners(Model m) {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Handle the save button click event
+                String id = idTextField.getText();
+
                 String name = nameTextField.getText();
                 String[] names = name.split(" ");
                 String email = emailTextField.getText();
                 String phone = phonetextfield.getText();
                 String Address = addresstextfield.getText();
-                 //String nat = citytextfiled.getText();
+                //String nat = citytextfiled.getText();
 
-                String idText = id; // Ensure id is not null
-                try {
-                    if (idText != null && !idText.isEmpty()) {
-                        int customerId = Integer.parseInt(idText);
+                //String idText = id; // Ensure id is not null
                         // Continue with creating the new customer
-                        Customer newCustomer = new Customer(customerId, name, Address, Long.parseLong(phone), email);
+                        Customer newCustomer = new Customer(Integer.parseInt(id), name, Address, Long.parseLong(phone), email);
                         //model.Data(newCustomer);
-                        m.getManageStudentData().update(newCustomer);
+                        m.getManageStudentData().create(newCustomer);
 
                         System.out.println("Customer Successfully Created and edit with data" + newCustomer.getfirst_name() + newCustomer.getlast_ame() + newCustomer.getEmail() + newCustomer.getMobileNo() + newCustomer.getAddress());
-                    } else {
-                        // Display an error message
-                        JOptionPane.showMessageDialog(EditForm.this, "Customer ID is required.", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                } catch (NumberFormatException ex) {
-                    // Handle the error when id is not a valid integer
-                    JOptionPane.showMessageDialog(EditForm.this, "Invalid Customer ID. Please provide a valid ID.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+
 
                 // Close the edit form
                 dispose();

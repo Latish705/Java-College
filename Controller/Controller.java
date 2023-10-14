@@ -16,6 +16,7 @@ import Model.Food_item;
 import Model.manage_Customer;
 import Model.Manage_food_items;
 import View.EditForm;
+import View.createform;
 
 public class Controller {
     Model model;
@@ -81,7 +82,7 @@ public class Controller {
                 int d=0;
 //                id();
 //                up();
-                for (int j = 0; j < 900; j++) {
+                for (int j = 0; j < 2000; j++) {
                     view.getMf().getIp().getCp().getPlayerButtons().get(d).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -159,6 +160,24 @@ public class Controller {
             }
 
         });
+
+        view.getMf().getIp().getBp().getBtn_create().addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent me) {
+                //   data=model.getManagefoodData().getLines(model.getManagefoodData().getFirstLineToDisplay(), model.getManagefoodData().getLastLineToDisplay());
+                //head=model.getManagefoodData().getfoodHeaders();
+                //System.out.println("Course Pressed");
+                what_clicked = "Student";
+                System.out.println(what_clicked);
+                opencreateform();
+
+                view.centerInitialSetup(model.getManageStudentData().getLinesBeingDisplayed(), model.getManageStudentData().getHeaders().size());
+
+                view.centerUpdate(model.getManageStudentData().getLines(model.getManageStudentData().getFirstLineToDisplay(), model.getManageStudentData().getLastLineToDisplay()), model.getManageStudentData().getHeaders());
+                //addScrolling();
+
+            }
+
+        });
 //
 
 
@@ -172,6 +191,14 @@ public class Controller {
         fromFrame.setSize(800, 500);
         EditForm editForm = new EditForm(d,model);
         editForm.setVisible(true);
+    }
+    private void opencreateform() {
+        JFrame fromFrame=new JFrame("Edit Form");
+        fromFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fromFrame.setSize(800, 500);
+        createform editForm = new createform(model);
+        editForm.setVisible(true);
+        addScrolling();
     }
     private void addScrolling()
     {

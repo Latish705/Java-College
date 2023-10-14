@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class ButtonPanel  extends JPanel {
     JButton btn_customer = new JButton();
     JButton btn_food = new JButton();
+    JButton btn_create = new JButton();
+
     JButton update = new JButton();
 
     public ButtonPanel(){
@@ -22,6 +24,12 @@ public class ButtonPanel  extends JPanel {
         this.add(btn_food);
         validate();
         repaint();
+        btn_create.setBackground(Color.cyan);
+        btn_create.setPreferredSize(new Dimension(80,25));
+        btn_create.setText("Create");
+        this.add(btn_create);
+        validate();
+        repaint();
     }
 
     public JButton getBtn_student() {
@@ -30,6 +38,9 @@ public class ButtonPanel  extends JPanel {
 
     public JButton getBtn_course() {
         return btn_food;
+    }
+    public JButton getBtn_create() {
+        return btn_create;
     }
     public JButton getUpdate() {
         return update;
