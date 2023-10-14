@@ -1,7 +1,6 @@
-  Exit.setBackground(Color.GRAY);
-        Exit.setPreferredSize(new Dimension(200,50));
-        Exit.setText("Exit");
-        this.add(Exit);
+delete_button.setBackground(Color.cyan);
+        delete_button.setPreferredSize(new Dimension(120,25));
+        delete_button.setText("Product");
+        this.add(delete_button);
         validate();
         repaint();
-        

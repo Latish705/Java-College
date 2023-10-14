@@ -1,9 +1,11 @@
 package View;
+import Model.Model;
 
 import java.util.ArrayList;
 
 public class View {
 
+//    private Model model=;
     private MainFrame mf;
 
     public View() {
@@ -26,5 +28,16 @@ public class View {
     public void centerUpdate(ArrayList<ArrayList<String>> lines, ArrayList<String> headers) {
         mf.getIp().getCp().updateDisplay(lines,headers);
     }
+
+        // ...
+
+        public void refreshCustomerData(Model model) {
+            // Update your GUI components to reflect the changes in the data
+            centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+        }
+
+        // ...
+
+
 }
 

@@ -42,6 +42,12 @@ public class Customer extends Person {
         this.Country=Country;
     }
 
+    public Customer(int id, String name, String email,String phone,String address,String city) {
+        super(id,name,email,phone);
+        this.address=address;
+        this.city=city;
+    }
+
     public String getAddress()
     {
         return this.address;

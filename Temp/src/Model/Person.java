@@ -29,13 +29,13 @@ public class Person {
         this.email=email;
         this.phone=mobile_no;
     }
-    Person(int customer_id,String fullname,String phone,String email)
+    Person(int customer_id,String fullname,String email,String phone)
     {
         this.customer_id=customer_id;
         String[] split=fullname.split(" ");
         this.first_name=split[0];
         this.last_name=split[1];
-//        this.phone=phone;
+        this.phone=phone;
         this.email=email;
     }
     public void setname(String fullname)

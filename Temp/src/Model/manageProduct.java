@@ -66,6 +66,11 @@ public class manageProduct extends fileHandlingProduct implements Displayable {
         }
     }
 
+//    @Override
+//   Override public void deleteRowJson(int rowid) {
+//
+//    }
+
     public ArrayList<String> getHeaders() {
         ArrayList<String> headers = new ArrayList<String>();
         headers.add("Id");

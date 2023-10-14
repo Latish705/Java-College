@@ -2,11 +2,15 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.temporal.JulianFields;
 import java.util.ArrayList;
 
 public class ButtonPanel  extends JPanel {
     JButton btn_student = new JButton();
     JButton btn_course = new JButton();
+    JButton edit_button=new JButton();
+
+    JButton delete_button=new JButton();
 
     public ButtonPanel(){
         btn_student.setBackground(Color.cyan);
@@ -21,6 +25,18 @@ public class ButtonPanel  extends JPanel {
         this.add(btn_course);
         validate();
         repaint();
+        edit_button.setBackground(Color.cyan);
+        edit_button.setPreferredSize(new Dimension(120,25));
+        edit_button.setText("Product");
+        this.add(edit_button);
+        validate();
+        repaint();
+        delete_button.setBackground(Color.cyan);
+        delete_button.setPreferredSize(new Dimension(120,25));
+        delete_button.setText("Product");
+        this.add(delete_button);
+        validate();
+        repaint();
     }
 
     public JButton getBtn_student() {
@@ -30,4 +46,5 @@ public class ButtonPanel  extends JPanel {
     public JButton getBtn_course() {
         return btn_course;
     }
+    public JButton getEdit_button(){return edit_button};
 }

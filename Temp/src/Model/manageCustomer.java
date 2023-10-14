@@ -1,8 +1,12 @@
 package Model;
 
+import Controller.Controller;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import Model.Model;
+import View.View;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +46,7 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
                     String Country = node.get("Country").asText();
                     Customer stud = new Customer(id,name,lastName,email,phone,address,state,city,Country);
                     Customers.add(stud);
+
                 }
             }
         } catch (IOException e) {
@@ -49,6 +54,43 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         }
 
         return Customers;
+    }
+
+
+    public void DeleteSpecificNode(String  row_id)
+    {
+        String jsonFilePath = "./Temp/src/Model/customer.json"; // Replace with your JSON file path
+        String nodeIdToDelete = row_id;  // Replace with the 'id' of the node to delete
+
+        try {
+            // Read the JSON file
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(new File(jsonFilePath));
+
+            if (rootNode instanceof ArrayNode) {
+                ArrayNode arrayNode = (ArrayNode) rootNode;
+
+                // Search for the node with the specified 'id'
+                for (int i = 0; i < arrayNode.size(); i++) {
+                    JsonNode node = arrayNode.get(i);
+                    if (node.has("customer_id") && node.get("customer_id").asText().equals(nodeIdToDelete)) {
+                        // Remove the node from the array
+                        arrayNode.remove(i);
+                        break;
+                    }
+                }
+
+                // Write the updated JSON back to the file
+                objectMapper.writeValue(new File(jsonFilePath), rootNode);
+                System.out.println("Node with id " + nodeIdToDelete + " deleted successfully.");
+//                view.centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
+
+            } else {
+                System.out.println("JSON file should contain an array as the root node.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -77,7 +119,8 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         headers.add("MobileNo");
         headers.add("Address");
         headers.add("City");
-        headers.add("Edit");
+        headers.add("Edit Option");
+        headers.add("Delete Option");
 //        headers.add("10th Percentage");
 //        headers.add("12th/Diploma Percentage");
 
@@ -101,6 +144,7 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         Customer_details.add(String.valueOf(Customers.get(line).getAddress()));
         Customer_details.add(Customers.get(line).getCity());
         Customer_details.add("Edit");
+        Customer_details.add("Delete");
 
         return Customer_details;
     }
@@ -121,6 +165,10 @@ public class manageCustomer extends fileHandlingCustomer implements Displayable 
         return Customers_subset;
     }
 
+    public void deleteRowJson(int rowid)
+    {
+
+    }
     @Override
     public int getFirstLineToDisplay() {
         return firstLineIndex;
