@@ -33,6 +33,7 @@ public class View {
 
         public void refreshCustomerData(Model model) {
             // Update your GUI components to reflect the changes in the data
+
             centerUpdate(model.getManageCustomerData().getLines(model.getManageCustomerData().getFirstLineToDisplay(), model.getManageCustomerData().getLastLineToDisplay()), model.getManageCustomerData().getHeaders());
         }
 

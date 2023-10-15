@@ -15,7 +15,7 @@ public class Main {
                 Controller controller = new Controller(model, view);
 
                 // Call the initialize method to set up event listeners
-                controller.initialize();
+//                controller.initialize();
 
                 // If your main method has additional code, you can add it here
             }

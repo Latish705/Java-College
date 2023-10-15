@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class CenterPanel extends JPanel {
 
+    ArrayList<JButton> cutomers=new ArrayList<>();
     ArrayList<JButton> header_buttons = new ArrayList<>();
     ArrayList<JButton> customer_button = new ArrayList<>();
 
@@ -16,29 +17,35 @@ public class CenterPanel extends JPanel {
 
     public void createDisplay(int rows, int cols)
     {
+        ArrayList<JButton> thead=new ArrayList<>();
+        ArrayList<JButton> tbut=new ArrayList<>();
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
         this.setLayout(new GridLayout(rows+1,cols));
         for (int i = 1; i <= cols; i++)
         {
             JButton b = new JButton();
             b.setBackground(Color.cyan);
             b.setPreferredSize(new Dimension(80,25));
-            header_buttons.add(b);
+            thead.add(b);
             this.add(b);
             validate();
             repaint();
         }
+        header_buttons=thead;
         for (int i = 1; i <= rows * (cols); i++)
         {
             JButton b = new JButton();
             b.setBackground(Color.cyan);
             b.setPreferredSize(new Dimension(120,25));
-            customer_button.add(b);
+            tbut.add(b);
             this.add(b);
             validate();
             repaint();
 
         }
-
+        customer_button=tbut;
     }
 
     public void updateDisplay(ArrayList<ArrayList<String>> lines, ArrayList<String> headers) {

@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="at.borkowski.prefetch.simulation.materialiser" type="repository">
+    <properties maven-id="at.borkowski.prefetch-simulation:materialiser:0.0.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/at/borkowski/prefetch-simulation/materialiser/0.0.2/materialiser-0.0.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/at/borkowski/prefetch-simulation/core/0.0.2/core-0.0.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/at/borkowski/scovillej/services/0.0.7/services-0.0.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/at/borkowski/scovillej/core/0.0.7/core-0.0.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/at/borkowski/spicej/core/0.0.10/core-0.0.10.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.1/jackson-databind-2.5.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.5.0/jackson-annotations-2.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.5.1/jackson-core-2.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
