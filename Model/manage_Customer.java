@@ -21,7 +21,7 @@ public class manage_Customer extends fileHandling_Customer {
 
 
     public manage_Customer() {
-        Customers= readJsonFile("C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        Customers= readJsonFile("./Model/MOCK_DATA.json");
 //        t=Customers;
 //        writeJsonFile(Customers,"F://oopm//temp//Model//MOCK_DATA.json");
 
@@ -123,7 +123,7 @@ public class manage_Customer extends fileHandling_Customer {
 
     public ArrayList<String> getLine(int line) {
         ArrayList<String> student_details = new ArrayList<String>();
-        Customers= readJsonFile("C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        Customers= readJsonFile("./Model/MOCK_DATA.json");
         student_details.add(String.valueOf(Customers.get(line).getCustomerId()));
         student_details.add(Customers.get(line).getName());
         student_details.add(Customers.get(line).getEmail());
@@ -154,7 +154,7 @@ public class manage_Customer extends fileHandling_Customer {
 
     public void delete(String id) {
         // Read data from the JSON file and store it in an ArrayList
-        Customers = readJsonFile("C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        Customers = readJsonFile("./Model/MOCK_DATA.json");
 
         // Find the index of the object with the specified 'id' and remove it
         int indexToDelete = -1;
@@ -174,12 +174,12 @@ public class manage_Customer extends fileHandling_Customer {
         }
 
         // Write the updated ArrayList back to the JSON file
-        writeJsonFile(Customers, "C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        writeJsonFile(Customers, "./Model/MOCK_DATA.json");
     }
 
     public void update(Customer c){
         Customer temp =new Customer();
-        Customers= readJsonFile("C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        Customers= readJsonFile("./Model/MOCK_DATA.json");
 
         System.out.println(c.display_cust());
         for(int i=0;i<Customers.size();i++)
@@ -187,19 +187,19 @@ public class manage_Customer extends fileHandling_Customer {
             if(Customers.get(i).getCustomerId()==c.getCustomerId())
             {
                 Customers.get(i).copy(c);
-                writeJsonFile(Customers,"C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+                writeJsonFile(Customers,"./Model/MOCK_DATA.json");
             }
         }
 
     }
     public void create(Customer c) {
-        Customers = readJsonFile("C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        Customers = readJsonFile("./Model/MOCK_DATA.json");
 
         System.out.println(c.display_cust());
        // for (int i = 0; i < Customers.size(); i++) {}
 
         Customers.add(c);
-        writeJsonFile(Customers,"C:/Users/DELL/Downloads/temp/Model/MOCK_DATA.json");
+        writeJsonFile(Customers,"./Model/MOCK_DATA.json");
 
 
 

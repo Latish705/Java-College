@@ -9,7 +9,7 @@ public class CenterPanel extends JPanel {
 
     ArrayList<JButton> header_buttons = new ArrayList<>();
     ArrayList<JButton> Customer_buttons = new ArrayList<>();
-    ArrayList<JButton> food_buttons = new ArrayList<>();
+    ArrayList<JButton> Product_buttons = new ArrayList<>();
     int button_no;
 
     public CenterPanel()
@@ -53,7 +53,7 @@ public class CenterPanel extends JPanel {
 //            JButton b = new JButton();
 //            b.setBackground(Color.cyan);
 //            b.setPreferredSize(new Dimension(120,25));
-//            food_buttons.add(b);
+//            Product_buttons.add(b);
 //            this.add(b);
 //            validate();
 //            repaint();
@@ -90,7 +90,7 @@ public class CenterPanel extends JPanel {
 //            JButton b = new JButton();
 //            b.setBackground(Color.cyan);
 //            b.setPreferredSize(new Dimension(120,25));
-//            food_buttons.add(b);
+//            Product_buttons.add(b);
 //            this.add(b);
 //            validate();
 //            repaint();
@@ -172,7 +172,7 @@ public class CenterPanel extends JPanel {
         Customer_buttons.get(button_no).setText(button_text);
     }
     public void setPlayer2ButtonText(int button_no, String button_text) {
-        food_buttons.get(button_no).setText(button_text);
+        Product_buttons.get(button_no).setText(button_text);
     }
 
     public ArrayList<JButton> getHeaderButtons()
@@ -186,7 +186,7 @@ public class CenterPanel extends JPanel {
     }
     public ArrayList<JButton> getPlayer2Buttons()
     {
-        return food_buttons;
+        return Product_buttons;
     }
 
 }

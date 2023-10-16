@@ -1,19 +1,17 @@
 package Model;
 
-import java.util.ArrayList;
-
 public class Model
 {
     protected manage_Customer manageCustomerData = new manage_Customer();
-    protected Manage_food_items managefoodData=new Manage_food_items();
+    protected manage_Product manageProductData=new manage_Product();
 
     public Model()
     {
         manageCustomerData.setLinesBeingDisplayed(25);
         manageCustomerData.setFirstLineToDisplay(0);
 
-        managefoodData.setLinesBeingDisplayed(25);
-        managefoodData.setFirstLineToDisplay(0);
+        manageProductData.setLinesBeingDisplayed(25);
+        manageProductData.setFirstLineToDisplay(0);
 
     }
 
@@ -23,9 +21,9 @@ public class Model
     {
         return manageCustomerData;
     }
-    public Manage_food_items getManagefoodData()
+    public manage_Product getManageProductData()
     {
-        return managefoodData;
+        return manageProductData;
     }
     public void Data(Customer c)
     {
